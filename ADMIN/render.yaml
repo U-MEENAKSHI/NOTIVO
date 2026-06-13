@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: notivo-api
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_VERSION
+        value: "18"
+      - key: PORT
+        value: "10000"
+      - key: MONGO_URI
+        sync: false   # Set this in Render Dashboard → Environment
+      - key: JWT_SECRET
+        sync: false   # Set this in Render Dashboard → Environment
+      - key: CLIENT_URL
+        value: "https://notivo-adminlog.vercel.app"
+      - key: EMAIL_USER
+        sync: false   # Set this in Render Dashboard → Environment
+      - key: EMAIL_PASS
+        sync: false   # Set this in Render Dashboard → Environment
